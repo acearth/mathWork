@@ -1,7 +1,7 @@
 FROM ruby:3
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 # TODO-remove: For debug use only
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client aws-cli net-tools vim
+RUN apt-get update -qq && apt-get install -y  net-tools vim netcat netcat
 WORKDIR /myapp
 #ARG RAILS_ENV
 COPY Gemfile /myapp/Gemfile
