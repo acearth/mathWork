@@ -1,12 +1,8 @@
 name: run-rails-test
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   rails-test:
