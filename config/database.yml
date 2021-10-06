@@ -24,8 +24,7 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  #host: host.docker.internal
   host: 127.0.0.1
-  database: <%= ENV['DB_NAME'] %>
-  username:  <%= ENV['PG_USERNAME'] %>
+  database: app1
+  username:  app1user
   password:  <%= ENV['PG_PASSWORD'] %>
