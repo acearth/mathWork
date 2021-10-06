@@ -1,0 +1,12 @@
+version: '3.7'
+services:  
+  web:
+    image: ${WEB_IMAGE}
+    command: bash -c "rm -f tmp/pids/server.pid && rails db:migrate && rails server --port 3000 --binding 0.0.0.0"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    environment:
+      - RAILS_ENV=production
+    #networks:
