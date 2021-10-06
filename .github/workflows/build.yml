@@ -2,11 +2,10 @@ on:
   push:
     branches: [ main ]
 
-name: build and push image
+name: build and publish
 
 jobs:
-  build-and-push:
-    name: Build and push docker image to AWS ECR registry
+  build-and-publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,6 +30,7 @@ jobs:
         ECR_REPOSITORY: math_power
         IMAGE_TAG: ${{ github.sha }}
       run: |
+        echo ${{ secrets.RAILS_MASTER_KEY }} > config/master.key
         # Build a docker container and push it to ECR 
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .

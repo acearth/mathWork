@@ -24,7 +24,7 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  host: 127.0.0.1
-  database: app1
-  username:  app1user
-  password:  <%= ENV['PG_PASSWORD'] %>
+  host: <%= Rails.application.credentials.db[:ip] %>
+  database: <%= Rails.application.credentials.db[:name] %>
+  username: <%= Rails.application.credentials.db[:user] %>
+  password: <%= Rails.application.credentials.db[:password] %>

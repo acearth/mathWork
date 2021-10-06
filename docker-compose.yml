@@ -7,5 +7,4 @@ services:
       - "3000:3000"
     environment:
       - RAILS_ENV=production
-      - PG_PASSWORD=${PG_PSWD}
     network_mode: host
