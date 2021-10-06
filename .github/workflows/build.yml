@@ -38,3 +38,13 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+    - name: Deploy to Docker compose
+      uses: wshihadeh/docker-deployment-action@v1
+      with:
+        remote_docker_host: user@myswarm.com
+        ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+        ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+        deployment_mode: docker-compose
+        deploy_path: math-docker
+        stack_file_name: docker-compose.yaml
+        #args: my_applicaion
