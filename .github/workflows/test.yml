@@ -1,0 +1,22 @@
+name: run-rails-test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  rails-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: bundle install
+        run: bundle instal
+      - name: rails test
+        run: bundle exec rails tests
