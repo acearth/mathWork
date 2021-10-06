@@ -44,18 +44,6 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
-    - name: pull latest built image
-      uses: wshihadeh/docker-deployment-action@master
-      with:
-        remote_docker_host: ${{ secrets.SSH_LOGIN }}
-        ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-        ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-        deployment_mode: docker-compose
-        deploy_path: math-docker
-        stack_file_name: docker-compose.yml
-        pull_images_first: true
-        args: --env-file .env pull
-
     - name: docker-compose deploy
       uses: wshihadeh/docker-deployment-action@master
       with:
