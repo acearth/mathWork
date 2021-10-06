@@ -1,10 +1,8 @@
 version: '3.7'
 services:  
   web:
-    image: ${WEB_IMAGE}
+    image: ${AWS_ACCOUNT_NUMBER}.dkr.ecr.ap-northeast-1.amazonaws.com/math_power
     command: bash -c "rm -f tmp/pids/server.pid && rails db:migrate && rails server --port 3000 --binding 0.0.0.0"
-    ports:
-      - "3000:3000"
     environment:
       - RAILS_ENV=production
     network_mode: host
