@@ -1,27 +1,6 @@
 # README
 
-TASK-4 and TASK-6 is here.
+This project is providing one sample API by ruby-on-rails.
 
-TODO-enrich
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Check the `Dockerfile` to see configurations. Please note, on docker build stage, we need to add Gemfile earlier to ensure we can reuse cache later in local build situation.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
